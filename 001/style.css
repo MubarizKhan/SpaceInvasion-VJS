@@ -1,0 +1,66 @@
+div#background {
+    width: 1200px;
+    height: 800px;
+    background-image: url('assets/milky-way-5295160_1280.jpg');
+    position: absolute;
+    /* background-size: auto; */
+    /* background-size: 100% 100%; */
+    /* background-repeat: no-repeat; */
+
+    /* width: 100%;
+    height: auto; */
+
+
+
+
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+	
+    /* Preserve aspet ratio */
+    min-width: 100%;
+    min-height: 100%;
+
+
+
+}
+
+div#hero {
+    width: 50px;
+    height: 50px;
+    background-image: url('assets/hero.png');
+    position: absolute;
+    left: 575px;
+    top: 500px; 
+    margin: auto;
+    max-width: 900px;      
+    margin-top: 50px;
+
+    margin-bottom: 50px;
+}
+
+div#missiles {
+    width: 1200px;
+    height: 800px;
+    position: absolute;
+}
+
+div.missile1 {
+    width: 10px;
+    height: 28px;
+    background-image: url('assets/missile1.png');
+    position: absolute;
+}
+
+div#enemies {
+    width: 1200px;
+    height: 800px;
+    position: absolute;
+}
+
+div.enemy {
+    width: 50px;
+    height: 50px;
+    background-image: url('assets/enemy.png');
+    position: absolute;
+}
