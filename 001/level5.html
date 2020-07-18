@@ -26,7 +26,7 @@
     <body class = "xtc">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">    
             <div class="container collapse navbar-collapse" id="navbarSupportedContent">
-                <a class="navbar-brand" href="#">Level 4</a>
+                <a class="navbar-brand" href="#">Level 5</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"> </span>
                 </button>
@@ -77,14 +77,14 @@
 
         var enemies = [
 
-            { left: 200, top: 375 },
+            { left: 260, top: 375 },
             // { left: 300, top: 175 },
-            { left: 400, top: 55 },
+            { left: 80, top: 55 },
             // { left: 500, top: 175 },
-            { left: 600, top: 295 },
+            { left: 490, top: 295 },
             // { left: 700, top: 175 },
-            { left: 1100, top: 235 },
-            { left: 1300, top: 175 }
+            { left: 50, top: 85 },
+            { left: 200, top: 175 }
         ];
 
 
@@ -162,7 +162,7 @@
         var rv8 = Math.floor(Math.random() * 100);
 
         var arr = [rv1,rv2,rv3,rv4,rv5, rv6, rv7, rv8];
-        var num1 = 890;
+        var num1 = 214;
         var nx = 0;
         var ny = 0;
         var sum2 = "0000000";
@@ -225,7 +225,8 @@
                         missiles.splice(missile, 1);
                         hit += 1;
                         console.log("hit correct", hit);
-                        window.location.href = "level5.html";
+                        alert(" You won! game over");
+                         window.location.href = "homepage.html"; 
                         }
                     
                         
@@ -245,15 +246,8 @@
                             miss += 1;
                             console.log("miss correct", miss);
                             alert("Miss alert!");
-                           //setTimeout("pageRedirect()", 10);
-                            //alert("GAME OVER ");
-                            //window.location.replace("http://level2.html");
                             window.location.href = "homepage.html";
-                                // throw new Error("Something went badly wrong!");
-
-                           // console.log("going in game loop");
-                            //return;
-                           // gameLoop();
+                               
                         }
             }
         }
