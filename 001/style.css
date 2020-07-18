@@ -99,3 +99,22 @@ div.enemy {
     font-family: 'Russo One', sans-serif;
     color: white;
 }
+
+div#hit {
+    font-family: 'Russo One', sans-serif;
+    color: white;
+    font-size: 20px;
+    position:absolute;
+   top:0;
+   right:0;
+}
+
+div#miss {
+    font-family: 'Russo One', sans-serif;
+    color: white;
+    font-size: 20px;
+    margin-right: 500px;
+    position:absolute;
+    bottom:0;
+    right:-500;
+}

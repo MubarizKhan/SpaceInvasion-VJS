@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <title>Player Profile</title>
+    <style>
+        body {
+            background-image: url('assets/milky-way-5295160_1280.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            overflow: hidden;
+            color: whitesmoke;
+        }
+        
+        .box {
+            background-color: grey;
+            width: 500px;
+            padding: 60px;
+            margin: 200px;
+            border-radius: 15px;
+            scroll-behavior: auto;
+            font-size: larger;
+            position: absolute;
+        }
+        
+        div.absolute {
+            position: absolute;
+            width: 100px;
+            box-sizing: content-box;
+            color: white;
+            bottom: 390px;
+            padding-left: 50px;
+            border: 0px solid #8AC007;
+            /* font-size: larger; */
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+
+    </div>
+    <audio style="display:none" id="myAudio" controls autoplay>
+  		<source src="music.mp3" type="audio/mpeg">
+  		Your browser does not support the audio element.
+		</audio>
+
+    <p>Click the buttons to play or pause the audio.</p>
+    <div class="absolute" style="font-size: larger;">
+        <form action="level2.html" method="GET">
+            Verify Your Name: <input type="text" name="name" id="pname">
+            <button> Save name </button>
+          
+        </form>
+
+
+    </div>
+    <button onclick="playAudio()" type="button">Play Audio</button>
+    <button onclick="pauseAudio()" type="button">Pause Audio</button>
+
+    <script>
+        var x = document.getElementById("myAudio");
+
+        function playAudio() {
+            x.play();
+        }
+
+        function pauseAudio() {
+            x.pause();
+        }
+    </script>
+
+    <div class="box">
+        <p id="demo"></p>
+    </div>
+
+
+
+
+    <script>
+        function myFunction() {
+            var name = location.search.substring(1).split("&");
+            var Name = name[0].split("=");
+
+            var level = location.search.substring(2).split(" ");
+            var Level = level[0].split("=");
+
+            n = unescape(Name[1]);
+            l = unescape(Level[2]);
+
+            t = "WELCOME<br><br>" + "Hello " + n + "<br><br>" +
+                "Your Level is: " + l;
+            document.getElementById("demo").innerHTML = t;
+        }
+        myFunction();
+    </script>
+
+
+
+</body>
+
+</html>

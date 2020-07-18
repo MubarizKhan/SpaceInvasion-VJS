@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Game</title>
+    <meta charset="utf-8">
+    <!-- Latest compiled and minified CSS -->
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="player.html">
+    <style>
+        body {
+            background-image: url('assets/milky-way-5295160_1280.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            overflow: hidden;
+        }
+        
+        .container1 {
+            background-color: gray;
+            width: 600px;
+            padding: 80px;
+            margin: 0 auto;
+            margin-top: 90px;
+            border-radius: 15px;
+            color: black;
+           
+        }
+
+        
+    </style>
+
+</head>
+
+<body id="mid">
+
+
+
+    <div class="container1">
+        <form action="player.html" method="GET">
+            <label>Player Name: </label><br>
+            <input type="text" name="Pname"> <br><br>
+            <label for="level">Choose Difficulty Level: </label><br>
+            <input type="radio" name="level" value="Easy">
+            <label for="easy">Easy</label><br>
+            <input type="radio" name="level" value="Hard">
+            <label for="hard">Hard</label><br>
+
+            <button type="submit" onclick="myFunction()">NEXT</button>
+        </form>
+        <p class="container2">
+            <audio style="display:none" id="myAudio" controls autoplay>
+					<source src="music.mp3" type="audio/mpeg">
+					Your browser does not support the audio element.
+				</audio>
+
+            <p>Click the buttons to play or pause the audio.</p>
+
+            <button onclick="playAudio()" type="button">Play Audio</button>
+            <button onclick="pauseAudio()" type="button">Pause Audio</button>
+        </p>
+
+        <div class = "para">
+            <p> <h3> Rules </h3>
+                On the space ship, the sum will appear, you have to hit that certain enemy ship, having the 
+                correct two numbers that will add to be the sum on your spaceship.
+                if you hit wrong space ship, you will gave to restart from level 1.
+                Maximum number of hits on the wrong spaceship is 2, when miss = 2,, game will restart.
+                
+    
+                <br><br>Move the cursor, to see which number you have been appointed! Good Luck!<br><br>
+            
+            </p>
+    </div>
+
+
+    <script>
+        var x = document.getElementById("myAudio");
+
+        function playAudio() {
+            x.play();
+        }
+
+        function pauseAudio() {
+            x.pause();
+        }
+    </script>
+
+    
+
+</body>
+
+</html>
