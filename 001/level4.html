@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,7 +26,7 @@
     <body class = "xtc">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">    
             <div class="container collapse navbar-collapse" id="navbarSupportedContent">
-                <a class="navbar-brand" href="#">Level 2</a>
+                <a class="navbar-brand" href="#">Level 4</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"> </span>
                 </button>
@@ -60,7 +61,6 @@
             </div>
         </nav>
 
-
     <div id="background">
         <div id="hero"></div>
         <div id="missiles"></div>
@@ -68,9 +68,6 @@
     </div>
 
     <script>
-
-        var level = 2; //Level of the game
-
         var hero = {
             left: 575,
             top: 500
@@ -80,13 +77,13 @@
 
         var enemies = [
 
-            { left: 200, top: 175 },
+            { left: 200, top: 375 },
             // { left: 300, top: 175 },
-            { left: 400, top: 175 },
+            { left: 400, top: 55 },
             // { left: 500, top: 175 },
-            { left: 600, top: 175 },
+            { left: 600, top: 295 },
             // { left: 700, top: 175 },
-            { left: 800, top: 175 },
+            { left: 800, top: 215 },
             { left: 900, top: 175 }
         ];
 
@@ -94,14 +91,14 @@
 
         var enemies1 = [
         
-            { left: 200, top: 175 },
+            { left: 200, top: 575 },
             // { left: 300, top: 175 },
-            { left: 400, top: 175 },
+            { left: 400, top: 575 },
             // { left: 500, top: 175 },
-            { left: 600, top: 175 },
+            { left: 600, top: 775 },
             // { left: 700, top: 175 },
-            { left: 800, top: 175 },
-            { left: 900, top: 175 }
+            { left: 800, top: 375 },
+            { left: 900, top: 375 }
         ];
         
 
@@ -127,15 +124,13 @@
             drawHero();
         }
 
-        
 
         function drawHero() {
             document.getElementById('hero').style.left = hero.left + 'px';
             document.getElementById('hero').style.top = hero.top + 'px';
             document.getElementById('hero').innerHTML += `<div class='hero' style=' top:${hero.top}px'> <h4> ${num1}</h4> </div>`;
+       
         }
-
-
 
         function drawMissiles() {
             // console.log(missiles.length, "<-");
@@ -155,19 +150,23 @@
         
         var rv1 = Math.floor(Math.random() * 100);
         var rv2 = Math.floor(Math.random() * 100);
+
         var rv3 = Math.floor(Math.random() * 100);
         var rv4 = Math.floor(Math.random() * 100);
+
         var rv5 = Math.floor(Math.random() * 100);
         var rv6 = Math.floor(Math.random() * 100);
+
+
         var rv7 = Math.floor(Math.random() * 100);
         var rv8 = Math.floor(Math.random() * 100);
 
-        var rand_list = [rv1,rv2,rv3,rv4,rv5, rv6, rv7, rv8]; //Will create an array of random integers
-        var num1 = 220; //The sum value of this page is 100
-        var nx = 0;  //First digit that will lead up to the sum
-        var ny = 0; //Second digit that will lead up to the sum
-        //var sum2 = "0000000";
-        var temp = 0; //Temporary variable which will lead up to the enemy index. which will have the correct sum.
+        var arr = [rv1,rv2,rv3,rv4,rv5, rv6, rv7, rv8];
+        var num1 = 1990;
+        var nx = 0;
+        var ny = 0;
+        var sum2 = "0000000";
+        var temp = 0;
 
         function drawEnemies() {
             // console.log(nx,ny);
@@ -176,7 +175,7 @@
             for(var i = 0 ; i < enemies.length ; i++ ) {  
                     console.log("drawing enemies");
                     if (i != 3){
-                        document.getElementById('enemies').innerHTML += `<div class='enemy' style='left:${enemies[i].left}px; top:${enemies[i].top}px'> <h4> ${rand_list[i]} "+" ${rand_list[i+1]} </h4> </div>`;
+                        document.getElementById('enemies').innerHTML += `<div class='enemy' style='left:${enemies[i].left}px; top:${enemies[i].top}px'> <h4> ${arr[i]} "+" ${arr[i+1]} </h4> </div>`;
                     }
                     else{
                         document.getElementById('enemies').innerHTML += `<div class='enemy' style='left:${enemies[i].left}px; top:${enemies[i].top}px'>  </div>`;
@@ -202,21 +201,6 @@
         }   
     
         // }
-        name = "Mubariz";
-        function save_game(){
-            console.log("It is working");
-            console.log(level, hit, miss); //name
-            //var saved_items = []
-            var testObject = { 'name': name, 'levels': 2, 'hit': Hits, 'miss': miss};
-            document.getElementsByClassName('navbar-toggler').innerHTML = " <h3> Logs saved </h3";
-            localStorage.setItem('testObject', JSON.stringify(testObject));
-            //Retrieve the object from storage
-            var retrievedObject = localStorage.getItem('testObject');
-            for (var i = 0; i < 155; i++){
-            console.log('retrievedObject: ', JSON.parse(retrievedObject));
-    
-            }
-        };
 
         function moveEnemies() {
             for(var i = 0 ; i < enemies.length ; i++ ) {
@@ -227,8 +211,7 @@
         var hit = 0;
         var miss = 0;
         function collisionDetection() {
-            // Colllision occurs with the enemy which has the correct answer, which will be the third enemy always
-
+            // 
                 for (var missile = 0; missile < missiles.length; missile++) {
                     // HITTTTTTTTT
                     if (  missiles[missile].left >= enemies[3].left  &&
@@ -236,21 +219,19 @@
                           missiles[missile].top <= (enemies[3].top + 50)  &&
                           missiles[missile].top >= enemies[3].top 
                         
-                        )
-                    { 
+                        )// && ((nx + ny) === num1)
+                        { 
                         enemies.splice(3, 1);
                         missiles.splice(missile, 1);
                         hit += 1;
                         console.log("hit correct", hit);
-                        
-                        window.location.href = "level3.html";
-                        
-                    }
+                        window.location.href = "level5.html";
+                        }
                     
                         
                 }
                 
-                    // This will happen when missiles will collide with the enemy ship
+                    // MISSSSSSSSSSSSSSS
                 for (var enemy = 0; enemy < enemies.length; enemy++) {
                     for (var missile = 0; missile < missiles.length; missile++)
                         {   if  (missiles[missile].left >= enemies[enemy].left  &&
@@ -263,10 +244,16 @@
                             missiles.splice(missile, 1);
                             miss += 1;
                             console.log("miss correct", miss);
-                           //alert("Miss alert!");
-                            
-                            alert("GAME OVER");
+                            alert("Miss alert!");
+                           //setTimeout("pageRedirect()", 10);
+                            //alert("GAME OVER ");
+                            //window.location.replace("http://level2.html");
                             window.location.href = "homepage.html";
+                                // throw new Error("Something went badly wrong!");
+
+                           // console.log("going in game loop");
+                            //return;
+                           // gameLoop();
                         }
             }
         }
@@ -276,18 +263,31 @@
 
         function gameLoop() {
             console.log("function call");
-            setTimeout(gameLoop, 120);
+           // for (var i = 0; i < 10; i++){}
+            setTimeout(gameLoop, 140);
             moveMissiles();
             drawMissiles();
             moveEnemies();
             drawEnemies();
             collisionDetection();
+            
+
+           // gameLoop();
         }
 
 
+        function pageRedirect() {
+
+            //window.location.replace("level2.html");
+            window.location.href = "level2.html";
+    
+        }      
+    
         
         
         gameLoop();
+        //window.location.href = "level2.html";
+        //setTimeout("pageRedirect()", 100);
         console.log("throw weeror");
         //alert("game_end");
 
